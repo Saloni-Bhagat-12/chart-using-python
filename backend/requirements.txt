@@ -2,3 +2,6 @@ Flask
 matplotlib
 flask_cors
 yfinance
+plotly
+tensorflow
+sklearn
