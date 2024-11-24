@@ -1,6 +1,6 @@
 # charts.py
 import yfinance as yf
-#import plotly.graph_objects as go
+import plotly.graph_objects as go
 import json
 import pandas as pd
 
@@ -32,7 +32,7 @@ def create_candlestick_chart(stock_symbol="AAPL"):
     # print(stock_data.columns)  # Debugging step
     
     # Handle missing values
-    stock_data.dropna(subset=['Open_AAPL', 'High_AAPL', 'Low_AAPL', 'Close_AAPL'], inplace=True)
+    stock_data.dropna(subset=['Open', 'High', 'Low', 'Close'], inplace=True)
 
     # Flattening all values
     # flattened_data = {
@@ -43,11 +43,11 @@ def create_candlestick_chart(stock_symbol="AAPL"):
     # print(flattened_data)
 
   # Extract individual columns
-    dates = stock_data['Date_'].astype(str)
-    open_prices = stock_data.get('Open_AAPL')
-    high_prices = stock_data.get('High_AAPL')
-    low_prices = stock_data.get('Low_AAPL')
-    close_prices = stock_data.get('Close_AAPL')
+    dates = stock_data['Date'].astype(str)
+    open_prices = stock_data.get('Open')
+    high_prices = stock_data.get('High')
+    low_prices = stock_data.get('Low')
+    close_prices = stock_data.get('Close')
 
     # Create a candlestick chart
     fig = go.Figure(
